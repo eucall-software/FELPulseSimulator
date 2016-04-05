@@ -1,0 +1,14 @@
+FELPulseSimulator
+----------------------
+
+1.) Purpose
+This program serves as an interface to FEL pulse data from the XFEL Pulse Database at http://in.xfel.eu/xpd.
+It allows to simulate a pulse train by specifying the pulse duration, the photon energy, and the pulse separation. After initialization, the user can then query for a pulse. The return from this query is a randomly picked XFEL pulse, represented as intensity as function of time and a time stamp, giving he offset of the pulse from the start of the first pulse in the pulse train.
+
+2.) Dependencies
+Besides standard python modules (numpy, h5py), the program needs to have
+access to the hdf5 files from the XFEL Pulse Database (XPD). After submitting a request to the database via the web interface http://in.xfel.eu/xpd, the requestor is provided with a link where the files can be downloaded. After
+download, copy the .h5 files to a directory in FELPulseSimulator/pulse_database/xxxx_yyy/ . xxxx specifies the photon energy in eV and yyy gives the pulse duration in fs. As an example, data for 3fs pulses at 4.96 keV would go
+into FELPulseSimulator/pulse_database/4960_003/.
+
+3.) Usage: The test module FELPulseSimulator/python/PulseTrainSimulationTest.py provides a usage example.
